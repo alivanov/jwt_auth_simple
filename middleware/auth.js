@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
   const token = authHeader.replace("Bearer ", "");
 
   try {
-    jwt.verify(tokeb, jwtSecret);
+    jwt.verify(token, jwtSecret);
   } catch (e) {
     if (e instanceof jwt.JsonWebTokenError) {
       return res.status(401).json({ message: "Invalid token!" });
